@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: lightsteelblue;
+    height: 15vh;
+    text-align: center;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: black;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    margin: auto;
+    height: 85vh;
+}
+
+#sidebar {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    background-color: #FFFFFF;
+    border-right: 1px solid black;
+}
+
+.navigation {
+    margin: 20px;
+}
+
+.navigation a {
+    display: block;
+}
+
+.projects {
+    margin: 20px;
+}
+
+#workplace {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    background-color: #F0EEF1;
+}
+
+.field {
+    width: 160px;
+}
+
+.option-selected {
+    margin: 20px;
+    font-size: larger;
+}
+
+.card {
+    margin: 20px;
+    height: 70px;
+    background-color: lightgreen;
+    border-radius: 5px;
+    border: 2px solid black;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.title {
+    font-size: 24px;
+    width: 20vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.description {
+    width: 20vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card-buttons {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card-buttons button {
+    width: 50px;
+}
+
+.inputProjectShown {
+    width: 100px;
+    background-color: aquamarine;
+}
+
+.inputProjectHidden {
+    display: none;
+}
+
+.btnConfirmShown {
+    width: 60px
+}
+
+.btnConfirmShown::after {
+    content: 'Confirm';
+}
+
+.btnConfirmHidden {
+    display: none;
+}

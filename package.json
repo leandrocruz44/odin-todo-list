@@ -1,0 +1,28 @@
+{
+  "name": "odin-todo-list",
+  "version": "1.0.0",
+  "description": "A project for the Web Development course by The Odin Project (Todo List)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandrocruz44/odin-todo-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leandrocruz44/odin-todo-list/issues"
+  },
+  "homepage": "https://github.com/leandrocruz44/odin-todo-list#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.2",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
