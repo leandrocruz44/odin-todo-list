@@ -32,6 +32,10 @@ main {
     border-right: 1px solid black;
 }
 
+.options {
+    cursor: pointer;
+}
+
 .navigation {
     margin: 20px;
 }

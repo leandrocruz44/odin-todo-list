@@ -1,24 +1,26 @@
+import { domAddCard } from "./dom-add-card"
+
+let idGlobal = 0;
+
 let projects = {
     'Default Project': [],
 }
-    
-const todo =  (title, description, dueDate, project, priority) => {
-    return {title, description, dueDate, project, priority}
+
+const todo =  (idTodo, title, description, dueDate, project, priority) => {
+    return {idTodo, title, description, dueDate, project, priority}
 }
 
 const addToDo = () => {
     const submit = document.getElementById('submit')
     submit.addEventListener('click', () => {
+        const idTodo = idGlobal ++
         const getTitle = document.getElementById('title').value;
         const getDescription = document.getElementById('description').value;
         const getDueDate = document.getElementById('dueDate').value;
         const getProject = document.getElementById('project').value;
         const getPriority = document.getElementById('priority').value;
-        const entry = todo(getTitle, getDescription, getDueDate, getProject, getPriority)
-        if (getProject === '') {
-            projects['Default Project'].push(entry)
-            domAddCard(projects['Default Project'])
-        } else if (projects.hasOwnProperty(getProject) === true){
+        const entry = todo(idTodo, getTitle, getDescription, getDueDate, getProject, getPriority)
+        if (projects.hasOwnProperty(getProject) === true){
             projects[getProject].push(entry)
             domAddCard(projects[getProject])
         }
@@ -117,61 +119,26 @@ const projectsDropDown = () => {
 }
 
 const deleteTodo = () => {
-
-}
-
-function domAddCard(selected) {
-    selected.sort(function(a, b) {
-        return a.title.localeCompare(b.title)
+    window.addEventListener('click', (e) => {
+        if (e.target.nodeName === 'BUTTON' && e.target.className === 'delete') {
+            const todoId = e.target.parentNode.childNodes[0].innerText
+            const todoProject = e.target.parentNode.childNodes[4].innerText
+            const todoIndex = projects[todoProject].findIndex(todo => todo.idTodo == todoId)
+            projects[todoProject].splice(todoIndex, 1)
+            domAddCard(projects[todoProject])
+            console.log(todoIndex);
+        }
     })
-
-    const anchor = document.getElementById('anchor')
-    while (anchor.hasChildNodes()) {
-        anchor.removeChild(anchor.firstChild)
-    }
-
-    let numberOfProjects = selected.length
-
-    for (let i = 0; i < numberOfProjects; i++) {
-
-        const card = document.createElement('div');
-        card.classList.add('card');
-        anchor.appendChild(card);
-
-        const title = document.createElement('div');
-        title.classList.add('title');
-        title.textContent = selected[i].title;
-        card.appendChild(title);
-
-        const description = document.createElement('div');
-        description.classList.add('description');
-        description.textContent = selected[i].description;
-        card.appendChild(description);
-
-        const dueDate = document.createElement('div');
-        dueDate.textContent = selected[i].dueDate;
-        card.appendChild(dueDate);
-
-        const project = document.createElement('div');
-        project.textContent = selected[i].project;
-        card.appendChild(project);
-
-        const priority = document.createElement('div');
-        project.textContent = selected[i].priority;
-        card.appendChild(priority);
-
-        const deleteTodo = document.createElement('button');
-        deleteTodo.classList.add('delete');
-        deleteTodo.textContent = 'Delete';
-        card.appendChild(deleteTodo);
-    }
 }
+
+
 
 addToDo()
 addProject()
 showProjectsOnSidebar()
 showAllProjectsOnWorkspace()
 projectsOnWorkspace()
+deleteTodo()
 
 
 

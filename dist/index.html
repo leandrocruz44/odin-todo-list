@@ -10,28 +10,31 @@
 <body>
     <div id="container">
         <header>
-            <h1>To-Do List</h1>
+            <h1>Todo List</h1>
         </header>
         <main>
             <div id="sidebar">
                 <div class="navigation" id="navigation">
-                    <div id="all">All</div>
-                    <div id="today">Today</div>
-                    <div id="completed">Completed</div>
+                    <div id="all" class="options">All</div>
+                    <div id="today" class="options">Today</div>
+                    <div id="completed" class="options">Completed</div>
                 </div>
                 <div class="projects">
                     <h2>Projects</h2>
-                    <div id="inputAnchor"></div>
-                    <button id="addProject">Add Project</button>
-                    <div id="projectAnchor"></div>
+                    <div id="inputAnchor" class="options"></div>
+                    <button id="addProject" class="options">Add Project</button>
+                    <div id="projectAnchor" class="options"></div>
                 </div>
             </div>
             <div id="workplace">
                 <div id="section" class="all">
+                    <input type="text" name="" id="idTodo" class="field">
                     <input type="text" name="" id="title" class="field">
                     <input type="text" name="" id="description" class="field">
                     <input type="text" name="" id="dueDate" class="field">
-                    <select name="project" id="project" class="field"></select>
+                    <select name="project" id="project" class="field">
+                        <option value="Default Project">Default Project</option>
+                    </select>
                     <select name="priority" id="priority" class="field">
                         <option value="Normal">Normal</option>
                         <option value="Important">Important</option>
